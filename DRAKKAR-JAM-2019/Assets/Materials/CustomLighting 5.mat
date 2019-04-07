@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: CustomLighting 3
+  m_Name: CustomLighting 5
   m_Shader: {fileID: 4800000, guid: e570c2adf90d6a24b8634788025bb2bb, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 0
@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _Diffuse:
-        m_Texture: {fileID: 2800000, guid: 7b0d4884325bf294ca277c597eec0286, type: 3}
+        m_Texture: {fileID: 2800000, guid: b03e99652b3d2704bb5bc8e7ba519a78, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _Normals:
