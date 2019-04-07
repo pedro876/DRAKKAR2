@@ -27,7 +27,7 @@ public class WindController : MonoBehaviour
 
     private void LateUpdate()
     {
-        water.GetComponentInChildren<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x/2f, windDirection.y/2f, 0, 0));
+        water.GetComponentInChildren<MeshRenderer>().material.SetVector("_DirectionXY", new Vector4(windDirection.x*0.1f, windDirection.y*0.1f, 0, 0));
     }
 
     IEnumerator startWind()
