@@ -43,11 +43,11 @@ public class ShipMove : MonoBehaviour
     [SerializeField] WindController wc;
     [SerializeField] bool decoration = false;
 
-    [Header("Punch references")]
+    [Header("Sound references")]
     [SerializeField] ShipPunch rightPuncher;
     [SerializeField] ShipPunch leftPuncher;
     [SerializeField] AudioSource hitSound;
-
+    [SerializeField] AudioSource floatSound;
 
     // Start is called before the first frame update
     void Start()
@@ -195,7 +195,7 @@ public class ShipMove : MonoBehaviour
     {
         hitCounter = 0f;
         hitDirection = dir * power;
-        hitSound.Play();
+        floatSound.Play();
         print("someone was hit");
 }
 
