@@ -33,9 +33,6 @@ public class ShipMove : MonoBehaviour
     float hitCounter = 0f;
     //[SerializeField] Transform agua;
 
-    
-    
-
     //ADJUST VARIABLES
     [Header("Adjust variables")]
     [SerializeField][Range(0.1f,7f)] float raycastDisplacement = 0.3f;
@@ -111,7 +108,6 @@ public class ShipMove : MonoBehaviour
     }
     private void windControl()
     {
-
         rb.AddForce(new Vector3(wc.windDirection.x, 0f, wc.windDirection.y));
     }
 
