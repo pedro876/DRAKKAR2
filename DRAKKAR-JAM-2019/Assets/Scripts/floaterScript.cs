@@ -7,10 +7,14 @@ public class floaterScript : MonoBehaviour
     [SerializeField] Transform origin;
     [SerializeField] float minDistance = 3f;
     [SerializeField] float maxDistance = 12f;
-
+    [SerializeField] float power = 20f;
     float distance;
     Vector2 direction;
     int layerMask;
+
+    /*[SerializeField] float minTime = 3f;
+    [SerializeField] float maxTime = 10f;
+    bool hidden = false;*/
 
     // Start is called before the first frame update
     void Start()
@@ -27,18 +31,19 @@ public class floaterScript : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position + Vector3.up * 3, /*-transform.up*/-Vector3.up, out hit, 100f, layerMask))
         {
+            print("col");
             transform.position = hit.point;
-            /*Vector3 auxForward = transform.forward;
-            correctNormal = correctNormal.normalized;*/
             transform.up = hit.normal;
-            //float angle = Vector3.Angle(auxForward, transform.forward);
-            /*Vector3 crossProduct = Vector3.Cross(Vector3.ProjectOnPlane(auxForward, Vector3.up),
-                Vector3.ProjectOnPlane(transform.forward, Vector3.up));
-            if (crossProduct.y > 0)
-            {
-                angle = -angle;
-            }
-            transform.Rotate(transform.up, angle);*/
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "player")
+        {
+            collision.gameObject.GetComponent<ShipMove>().getHitByFloat(power, (collision.transform.position - transform.position).normalized);
+        }
+    }
+
+
 }
