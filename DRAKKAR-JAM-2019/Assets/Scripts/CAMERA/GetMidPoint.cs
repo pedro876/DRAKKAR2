@@ -12,7 +12,7 @@ public class GetMidPoint : MonoBehaviour
     [SerializeField] Transform end;*/
     public List<Transform> players = new List<Transform>();
     [SerializeField] CameraScript cs;
-
+    [SerializeField] GameObject canvas;
 
     // Update is called once per frame
     void Update()
@@ -53,6 +53,10 @@ public class GetMidPoint : MonoBehaviour
                     players.RemoveAt(i);
                     i--;
                     count--;
+                    if(count <= 1)
+                    {
+                        canvas.SetActive(true);
+                    }
                 }
             }
             if (aux)
