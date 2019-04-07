@@ -46,6 +46,7 @@ public class ShipPunch : MonoBehaviour
 
     public void punch()
     {
+        
         if (!pushing)
         {
             punchSound.Play();

@@ -41,6 +41,7 @@ public class ShipMove : MonoBehaviour
     Rigidbody rb;
     int layerMask;
     [SerializeField] WindController wc;
+    [SerializeField] bool decoration = false;
 
     [Header("Punch references")]
     [SerializeField] ShipPunch rightPuncher;
@@ -82,8 +83,13 @@ public class ShipMove : MonoBehaviour
             veerSpeed = Mathf.Clamp(veerSpeed, -veerMaxSpeed, veerMaxSpeed);
             rb.AddTorque(transform.up * veerSpeed, ForceMode.Force);
         }
-        hitControl();
-        windControl();
+       
+        if (!decoration)
+        {
+            hitControl();
+            windControl();
+        }
+        
     }
     private void hitControl()
     {
@@ -121,11 +127,15 @@ public class ShipMove : MonoBehaviour
         if (Input.GetKey(rightwardKey)) veerInput += 1;
         if (Input.GetKey(leftwardKey))  veerInput -= 1;
 
-        hitRight = Input.GetKeyDown(hitRightKey);
-        hitLeft  = Input.GetKeyDown(hitLeftKey);
+        if (!decoration)
+        {
+            hitRight = Input.GetKeyDown(hitRightKey);
+            hitLeft = Input.GetKeyDown(hitLeftKey);
 
-        if (hitRight) rightPuncher.punch();
-        if (hitLeft) leftPuncher.punch();
+            if (hitRight) rightPuncher.punch();
+            if (hitLeft) leftPuncher.punch();
+        }
+        
     }
     public void wavePositioning()
     {
