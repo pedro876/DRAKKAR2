@@ -190,6 +190,15 @@ public class ShipMove : MonoBehaviour
         hitSound.Play();
         print("someone was hit");
     }
+
+    public void getHitByFloat(float power, Vector3 dir)
+    {
+        hitCounter = 0f;
+        hitDirection = dir * power;
+        hitSound.Play();
+        print("someone was hit");
+}
+
     public void stopHit()
     {
         hitCounter = 0f;
